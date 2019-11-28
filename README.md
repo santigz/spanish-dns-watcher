@@ -51,6 +51,6 @@ Los servidores DNS de puntCAT están abiertos, al igual que hacen otras organiza
 Este servidor lleva top-level domain `.cat` y está gestionado por la Funcación puntCAT, que ha sido protagonista de eventos importantes en Cataluña, entre otros por gestionar el dominio del referendum del 1-O:
 - [El Govern se apropia del dominio de internet .cat como “estructura de Estado”](https://elpais.com/ccaa/2018/10/09/catalunya/1539110244_940549.html)
 - [La justicia desmonta la organización del referéndum ilegal de Cataluña](https://elpais.com/ccaa/2017/09/20/catalunya/1505885372_273143.html)
-- [Right now spanish police @guardiacivil is doing an intervention in our office @ICANN](https://twitter.com/puntcat/status/910446518494269440?s=21)
+- [@puntCAT: Right now spanish police @guardiacivil is doing an intervention in our office @ICANN](https://twitter.com/puntcat/status/910446518494269440)
 - [Quiénes son los 14 detenidos en la operación contra el referéndum](https://www.eldiario.es/catalunya/politica/detenidos-operacion-referendum_0_688731968.html)
 
