@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+#
+# Some days ago the Spanish government blocked raw.githubusercontent.com
+# This code tests some spanish DNS server and some foreing ones to check the blockade status
+# Author: github.com/santigz
+# Twitter: @santi_sgz
+#
+# Use: ./spanish-dns-watcher
+# Use: ./spanish-dns-watcher somedomain.com
+#
+import dns.resolver
+import multiprocessing as mp
+import sys
+import yaml
+
+default_query = 'raw.githubusercontent.com'
+
+class bcolors:
+    """Code colors to format strings"""
+    GREEN = '\033[92m'
+    ORANGE = '\033[93m'
+    RED = '\033[91m'
+    CLEAR = '\033[0m'
+
+def query_dns_server(server):
+    """Query a DNS server and returns a formatted answer"""
+    resolver = dns.resolver.Resolver()
+    resolver.nameservers = [server['server_ip']]
+    resolver.lifetime = 5   # DNS query timeout
+    resolver.raise_on_no_answer = True
+    try:
+        answers = resolver.query(server['query'])
+        list_ips = [a.address for a in answers]
+        return bcolors.GREEN + ', '.join(list_ips) + bcolors.CLEAR
+    except dns.resolver.Timeout:
+        return bcolors.ORANGE + 'Timeout' + bcolors.CLEAR
+    except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
+        return bcolors.RED + '✘ no answer' + bcolors.CLEAR
+    except Exception as e:
+        return bcolors.RED + 'Error: ' + str(e) + bcolors.CLEAR
+
+def query_file(filename, query):
+    """Query all DNS server in `filename`
+
+    First we collect all servers and then we query all of them in
+    parallell using multiprocessing.Pool
+    """
+    with open(filename, encoding='utf-8') as f:
+        servers = []
+        isps = yaml.load(f, Loader=yaml.SafeLoader)
+        for isp_name in isps:
+            for server_ip in isps[isp_name]:
+                servers.append({'isp_name': isp_name, 'server_ip': server_ip, 'query': query})
+
+        print('Querying DNS servers for ' + query + '...')
+        pool = mp.Pool(50)
+        answers = pool.map(query_dns_server, servers)
+        pool.close()
+
+        for server, answer in zip(servers, answers):
+             print('{:15} {:15} {}'.format(server['isp_name'], server['server_ip'], answer))
+
+def main(argv):
+    if len(argv) > 1:
+        query = argv[1]
+    else:
+        query = default_query
+    query_file('dns-servers.yaml', query)
+
+if __name__ == '__main__':
+    main(sys.argv)
+
