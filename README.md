@@ -7,10 +7,14 @@ About November 15th, 2019, the Spanish government ordered nationsl ISPs to block
 
 ## Run the script
 
-You need a working Python 3 environment.
+You need a working Python 3 environment and pip3. To install them in Ubuntu:
 
-Install the dependencies:
+    $ sudo apt install python3 python3-pip
 
+Clone the repo and install the dependencies:
+
+    $ git clone https://github.com/santigz/spanish-dns-watcher.git
+    $ cd spanish-dns-watcher
     $ pip3 install -r requirements.txt
 
 Run the script:
