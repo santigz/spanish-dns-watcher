@@ -4,7 +4,7 @@ En noviembre de 2019, el Gobierno de España ordenó a los proveedores de intern
 
 Esto viene de la mano del decreto ley aprobado por el Gobierno del PSOE con el apoyo del PP y Ciudadanos, y la abstención de PODEMOS, que refuerza el control del Gobierno y debilita el poder judicial, al aprobar «intervenir las redes de telecomunicaciones por motivos de "orden público" sin que un juez le autorice a ello.» (cita de [eldiario.es > El decreto "contra la república digital catalana" que no nombra a Catalunya y sí da más capacidad al Gobierno para intervenir Internet](https://www.eldiario.es/tecnologia/Claves-decreto-intervenir-Intervenir-miercoles_0_967653357.html))
 
-He hecho este script para comprobar la resolución de servidores DNS españoles.
+He hecho este script para comprobar la resolución de servidores DNS españoles (y algunos extranjeros para comparar).
 
 ![Script in action](screenshot.png)
 
@@ -29,23 +29,22 @@ Puedes pasarle cualquier nombre de dominio:
 
     $ ./spanish-dns-watcher mozilla.org
 
-Tarda varios segundos en obtener las respuestas de los servidores (timeout de 5 s.) Las peticiones se envían en paralelo (hasta 50 simultáneas.)
+Tarda varios segundos en obtener las respuestas de los servidores (timeout de 5 s.) Las peticiones se envían en paralelo (hasta 50 simultáneas).
 
-Se muestran también consultas de servidores extranjeros como Google, Cloudflare y Verisign.
 
 ## Q&As
 
-**Por qué la mayoría de los servidores DNS no responden?**
+**¿Por qué la mayoría de los servidores DNS no responden?**
 
 Es una práctica común que los ISP cierren sus servidores sólo a clientes que pagan por sus servicios. Por lo tanto, sólo el servidor de la empresa mediante la cual te estés conectando al ejecutarlo te responderá.
 
 
-**Entonces por qué has puesto tantos servidores?**
+**¿Entonces por qué has puesto tantos servidores?**
 
 Porque me conecto desde varias redes a diario, y quiero algo sencillo. Y así tú puedes ejecutar el mismo código y ver la respuesta de tu ISP ;)
 
 
-**Por qué el servidor `puntCat` sí que responde?**
+**¿Por qué el servidor `puntCat` sí que responde?**
 
 Al parecer sus servidores están abiertos, al igual que hacen otras empresas como Google o Cloudflare.
 
