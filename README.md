@@ -1,6 +1,6 @@
 # Spanish DNS Watcher
 
-En noviembre de 2019, el Gobierno de España ordenó a los proveedores de internet (ISP) el bloqueo por DNS de la resolución de varios nombres de internet, incluido el conocido [raw.githubusercontent.com](raw.githubusercontent.com), usado en multitud de empresas y proyectos de código libre y propietario.
+En noviembre de 2019, el Gobierno de España ordenó a los proveedores de internet (ISP) el bloqueo por DNS de la resolución de varios nombres de internet, incluido el conocido [raw.githubusercontent.com](https://raw.githubusercontent.com), usado en multitud de empresas y proyectos de código libre y propietario.
 
 Esto viene de la mano del [Decreto Ley 14/2019](https://boe.es/boe/dias/2019/11/05/pdfs/BOE-A-2019-15790.pdf) aprobado por el Gobierno del PSOE con el apoyo del PP y Ciudadanos, y la abstención de UNIDAS-PODEMOS, que refuerza el control del Gobierno y debilita el poder judicial, al asignarse autoridad para «intervenir las redes de telecomunicaciones por motivos de "orden público" sin que un juez le autorice a ello.» (cita del jurista Sergio Carrasco en el artículo [El decreto "contra la república digital catalana" que no nombra a Catalunya y sí da más capacidad al Gobierno para intervenir Internet](https://www.eldiario.es/tecnologia/Claves-decreto-intervenir-Intervenir-miercoles_0_967653357.html))
 
