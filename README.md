@@ -54,3 +54,12 @@ Este servidor lleva top-level domain `.cat` y está gestionado por la Funcación
 - [@puntCAT: Right now spanish police @guardiacivil is doing an intervention in our office @ICANN](https://twitter.com/puntcat/status/910446518494269440)
 - [Quiénes son los 14 detenidos en la operación contra el referéndum](https://www.eldiario.es/catalunya/politica/detenidos-operacion-referendum_0_688731968.html)
 
+
+**¿Cómo evito que el Gobierno (de turno) bloquee el internet libre que una vez tuvimos?**
+
+El auge actual del autoritarismo [es una preocupación muy real](https://ctxt.es/es/20191106/Firmas/29360/Simona-Levi-Xnet-internet-Espana-China.htm). La privacidad completa online no existe, pero hay algunas cosas que puedes hacer para mejorar tu situación. No puedo hacer un resúmen de seguridad exhaustivo, pero aquí tienes algo rápido:
+
+- Usa un navegador de una empresa de software libre, como [Brave](https://brave.com) o [Firefox](https://firefox.com) - también en tu móvil.
+- Configura tu navegador para que use DoH (DNS cifrado sobre HTTPS). [En un segundo @nukeador te dice cómo](https://twitter.com/nukeador/status/1195321546711060480)
+- Si te lo puedes permitir, alquila los servicios VPN como [NordVPN](https://nordvpn) o [ProtonVPN](https://protonvpn.com).
+
