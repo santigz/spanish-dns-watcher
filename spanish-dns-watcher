@@ -62,6 +62,8 @@ def query_file(filename, query):
         answers = pool.map(query_dns_server, servers)
         pool.close()
 
+        print('{:15} {:15} {}'.format('ISP', 'DNS Server', 'Response'))
+        print('{:15} {:15} {}'.format('---', '----------', '--------'))
         for server, answer in zip(servers, answers):
              print('{:15} {:15} {}'.format(server['isp_name'], server['server_ip'], answer))
 
