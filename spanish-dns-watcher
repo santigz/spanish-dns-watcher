@@ -13,7 +13,12 @@ import multiprocessing as mp
 import sys
 import yaml
 
+# Set these variables
 default_query = 'raw.githubusercontent.com'
+dns_query_timeout = 5  # in seconds
+num_parallel_queries = 50
+
+
 
 class bcolors:
     """Code colors to format strings"""
@@ -26,7 +31,7 @@ def query_dns_server(server):
     """Query a DNS server and returns a formatted answer"""
     resolver = dns.resolver.Resolver()
     resolver.nameservers = [server['server_ip']]
-    resolver.lifetime = 5   # DNS query timeout
+    resolver.lifetime = dns_query_timeout   # DNS query timeout
     resolver.raise_on_no_answer = True
     try:
         answers = resolver.query(server['query'])
@@ -53,7 +58,7 @@ def query_file(filename, query):
                 servers.append({'isp_name': isp_name, 'server_ip': server_ip, 'query': query})
 
         print('Querying DNS servers for ' + query + '...')
-        pool = mp.Pool(50)
+        pool = mp.Pool(num_parallel_queries)
         answers = pool.map(query_dns_server, servers)
         pool.close()
 
