@@ -9,7 +9,6 @@
 # Use: ./spanish-dns-watcher somedomain.com
 #
 import dns.resolver
-import multiprocessing as mp
 import sys
 import yaml
 
@@ -57,10 +56,17 @@ def query_file(filename, query):
             for server_ip in isps[isp_name]:
                 servers.append({'isp_name': isp_name, 'server_ip': server_ip, 'query': query})
 
+        # Try parallel querying first and sequential as a backup
+        # Some systems have Pool installed but the library may crash
         print('Querying DNS servers for ' + query + '...')
-        pool = mp.Pool(num_parallel_queries)
-        answers = pool.map(query_dns_server, servers)
-        pool.close()
+        try:
+            import multiprocessing as mp
+            pool = mp.Pool(num_parallel_queries)
+            answers = pool.map(query_dns_server, servers)
+            pool.close()
+        except Exception as e:
+            print('Parallel DNS querying failed. Going one by one...')
+            answers = map(query_dns_server, servers)
 
         print('{:15} {:15} {}'.format('ISP', 'DNS Server', 'Response'))
         print('{:15} {:15} {}'.format('---', '----------', '--------'))
